@@ -64,6 +64,13 @@ fi
 
 log_file="$HOME/bash-scripting-backup/backup.log"
 checker_script="$HOME/backup-integrity-checker/backup_integrity_checker.py"
+
+if [[ ! -f "$checker_script" || ! -r "$checker_script" ]]; then
+    printf 'Error: integrity checker is missing or unreadable: %q\n' \
+        "$checker_script" >&2
+    exit 1
+fi
+
 printf '[%s] Backup started\n' "$(date -Is)" >> "$log_file"
 
 if rsync -ai -- "$resolved_source/" "$resolved_backup/" >> "$log_file" 2>&1; then

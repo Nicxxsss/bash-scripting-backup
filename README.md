@@ -10,13 +10,13 @@ The script checks the supplied directories and their access permissions, resolve
 
 It runs `rsync -ai` to copy the source directory's contents. If the copy succeeds, it runs the Python checker to compare files using SHA-256. A copy failure stops the script before verification.
 
-Command output and timestamps are appended to a log. The script returns `0` when copying and verification succeed, or `1` when validation, copying, or verification fails.
+The script logs the output from rsync and the Python checker, with timestamps marking the start and result of each stage. Initial validation errors are printed to the terminal and are not recorded in the log. The script returns exit status 0 when copying and verification succeed, or 1 when validation, copying, or verification fails.
 
 ## Requirements
 
 - Linux with Bash and GNU Coreutils, including `realpath` and `date`.
 - `rsync` and Python 3.
-- The Python integrity checker from the repository linked above.
+- `rsync` copies subdirectories recursively, but the current Python checker only verifies regular files directly inside the source directory. Subdirectories are skipped by the checker and cause verification to fail.
 
 Both directories must already exist. The user running the script needs access to read the source files and write to the backup.
 
@@ -48,7 +48,7 @@ printf 'Exit status: %s\n' "$?"
 
 During development, I tested a successful copy, a file-read permission error, a content mismatch that `rsync` skipped because size and modification time matched, and restoration into a separate temporary directory.
 
-## Test records
+## Evidence
 
 - [Backup execution logs](evidence/backup-runs.txt)
 - [Restore validation](evidence/restore-validation.txt)
