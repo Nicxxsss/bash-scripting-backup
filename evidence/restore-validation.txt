@@ -1,0 +1,28 @@
+Test directory: /tmp/backup-restore-check.roVTRl
+
+$ Run backup and integrity verification
+Source: /tmp/backup-restore-check.roVTRl/source
+Backup: /tmp/backup-restore-check.roVTRl/backup
+Resolved source: /tmp/backup-restore-check.roVTRl/source
+Resolved backup: /tmp/backup-restore-check.roVTRl/backup
+Backup copy completed successfully
+Backup verification passed
+
+$ Restore into a separate directory
+>f+++++++++ report.txt
+
+$ Compare source files with restored files
+[INFO] Starting backup integrity verification...
+[INFO] [OK] 'report.txt'
+[INFO] Backup integrity verification finished.
+[INFO]
+1 Valid Files
+0 Modified Files
+0 Missing Files
+0 Read Errors
+0 Skipped Items
+
+[INFO] Backup integrity verification PASSED
+
+
+Test exit status: 0

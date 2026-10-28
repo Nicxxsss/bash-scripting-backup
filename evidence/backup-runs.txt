@@ -1,0 +1,45 @@
+[2026-10-24T15:47:54-03:00] Backup started
+arguments: command not found
+[2026-10-24T15:49:13-03:00] Backup started
+[2026-10-24T15:52:44-03:00] Backup started
+[2026-10-24T15:52:44-03:00] Backup copy completed successfully
+[2026-10-24T15:54:14-03:00] Backup started
+.d..t...... ./
+rsync: [sender] send_files failed to open "/tmp/backup-preview.SsLroL/source/read-error.8GwPoC": Permission denied (13)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1356) [sender=3.4.1]
+[2026-10-24T15:54:14-03:00] Backup copy failed
+[2026-10-24T16:00:47-03:00] Backup started
+.d..t...... ./
+[2026-10-24T16:00:47-03:00] Backup copy completed successfully
+[2026-10-24T16:00:47-03:00] Verification started
+[INFO] Starting backup integrity verification...
+[INFO] [OK] 'report.txt'
+[INFO] Backup integrity verification finished.
+[INFO]
+1 Valid Files
+0 Modified Files
+0 Missing Files
+0 Read Errors
+0 Skipped Items
+
+[INFO] Backup integrity verification PASSED
+
+[2026-10-24T16:00:47-03:00] Backup verification passed
+[2026-10-24T16:02:31-03:00] Backup started
+.d..t...... ./
+[2026-10-24T16:02:31-03:00] Backup copy completed successfully
+[2026-10-24T16:02:31-03:00] Verification started
+[INFO] Starting backup integrity verification...
+[ERROR] [MODIFIED] 'integrity-test.txt'
+[INFO] [OK] 'report.txt'
+[INFO] Backup integrity verification finished.
+[INFO]
+1 Valid Files
+1 Modified Files
+0 Missing Files
+0 Read Errors
+0 Skipped Items
+
+[ERROR] Backup integrity verification FAILED
+
+[2026-10-24T16:02:31-03:00] Backup verification failed
